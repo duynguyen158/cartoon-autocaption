@@ -203,7 +203,8 @@ class DownloadDataScript:
 
     async def fetch(self, url):
         """
-        Helper that sends a request to a URL and returns a response or handles errors.
+        Helper that sends a request to a URL and returns a response or handles errors
+        (from Brad Solomon, https://realpython.com/async-io-python/#a-full-program-asynchronous-requests)
         """
         try:
             response = await self.session.request("GET", url)
