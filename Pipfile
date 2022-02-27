@@ -4,9 +4,13 @@ verify_ssl = true
 name = "pypi"
 
 [scripts]
-format = "bash -c 'pipenv run isort . && pipenv run black . && pipenv run flake8'"
+format = "bash -c 'pipenv run isort . && pipenv run black .'"
+lint = "bash -c 'pipenv run format && pipenv run flake8'"
+lock = "bash -c 'pipenv lock -r > ./requirements.txt && echo Package version requirements have been written to ./requirements.txt'"
 
 [packages]
+aiohttp = "*"
+aiofiles = "*"
 
 [dev-packages]
 black = "*"
