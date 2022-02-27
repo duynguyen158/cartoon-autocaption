@@ -10,7 +10,8 @@ lock = "bash -c 'pipenv lock -r > ./requirements.txt && echo Package version req
 
 [packages]
 aiohttp = "*"
-aiofiles = "*"
+aiopath = "*"
+tqdm = "*"
 
 [dev-packages]
 black = "*"
