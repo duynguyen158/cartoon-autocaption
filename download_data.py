@@ -54,7 +54,7 @@ class DownloadDataScript:
         self.cli_args = parser.parse_args(sys_argv)
         self.contest_ids = self.identify()
         self.prefix = (
-            "https://raw.githubusercontent.com/nextml/caption-contest-data2/gh-pages"
+            "https://raw.githubusercontent.com/nextml/caption-contest-data/gh-pages"
         )
         self.urls = {
             "contests": [self.urlize(contest_id) for contest_id in self.contest_ids],
@@ -180,11 +180,11 @@ class DownloadDataScript:
             )
             return
 
-        # Grab content from responses in bytes
+        # Grab content from responses as bytes
         content_cartoon, content_captions = await asyncio.gather(
             response_cartoon.read(), response_captions.read()
         )
-        # Contest winners are stored in text
+        # Store contest winners as text
         content_winners = await to_thread(json.dumps, self.winners.get(contest_id, {}))
 
         # Re-create contest directory
